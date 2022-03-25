@@ -12,8 +12,15 @@
 <!-- /image cdn -->
 
 <!-- check file existance -->
-{{ if fileExists (add `assets/` (string $imagePath)) }}
-{{ $image:= resources.Get $imagePath }}
+{{ $image:= false }}
+{{ if fileExists (add (string .Page.File.Dir) $imagePath) }}
+{{ $image = .Page.Resources.GetMatch  $imagePath}}
+{{ else if fileExists (add `assets/` (string $imagePath))}}
+{{ $image = resources.Get $imagePath }}
+{{ end }}
+
+
+{{ if $image }}
 
 <!-- image extension -->
 {{ $imageExt := path.Ext $image }}
