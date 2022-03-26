@@ -27,9 +27,9 @@
           </ul>
         </div>
 
-        {{ with .Params.image }}
+        {{ with . }}
         <div class="mb-5 text-center">
-          {{ partial "image.html" (dict "Src" . "Class" "img-fluid rounded" "Alt" "Post image") }}
+          {{ partial "image.html" (dict "Src" .Params.image "Class" "img-fluid rounded" "Alt" "Post image" "Page" .Page) }}
         </div>
         {{ end }}
         
