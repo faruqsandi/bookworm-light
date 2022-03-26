@@ -32,9 +32,15 @@
           {{ partial "image.html" (dict "Src" . "Class" "img-fluid rounded" "Alt" "Post image") }}
         </div>
         {{ end }}
+        
         <div class="mb-5 text-center">
         {{ partial "image-gallery" (dict "context" . "gallery_dir" "album") }}
         </div>
+
+        <div class="mb-5 text-center">
+          {{ partial "color-palette" (dict "context" .  ) }}
+        </div>
+
         <div class="content">
           {{.Content}}
         </div>
